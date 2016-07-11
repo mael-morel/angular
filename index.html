@@ -1,14 +1,16 @@
-<html ng-app>
+<html ng-app="fruit">
 <head>
     <meta charset="utf-8">
     <title>Application AngularJs</title>
 </head>
 <body>
-    <div>
-        <input type="text" ng-model="application.name"/>
-        <p>Application name: {{application.name}}</p>
+    <div ng-controller="FruitsController as fruits">
+        <input type="text" ng-model="fruits.firstFruit"/>
+        <p>Fruit name: {{fruits.firstFruit}}</p>
+        <button ng-click="fruits.displayFruit()">Print first fruit</button>
     </div>
 
 <script src="angular.js"></script>
+<script src="FruitsController.js"></script>
 </body>
 </html>

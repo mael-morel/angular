@@ -3,12 +3,11 @@
 <div>
     <ul>
         <li ng-repeat="account in listAccounts.accounts">
-            <a href="" ui-sref="accountDetail({accountNumber:account.number})">
+            <a ui-sref="">
                 number: {{account.number}}
                 owner: {{account.owner}}
             </a>
         </li>
     </ul>
 
-    <button ui-sref="root.createAccount">Créer un compte</button>
 </div>

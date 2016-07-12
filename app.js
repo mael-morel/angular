@@ -29,15 +29,6 @@ firstApp.config(function ($stateProvider) {
     }
 );
 
-firstApp.controller('CreateAccountController' , function ($state){
-
-    var vm = this;
-
-    vm.goToListAccounts = function() {
-        $state.go('root.listAccounts');
-    };
-});
-
 firstApp.controller('ListAccountsController' , function () {
 
     var vm = this;

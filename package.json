@@ -1,0 +1,17 @@
+{
+  "name": "tp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "contacts.js",
+  "engines": {
+    "node": ">=0.10.3 <0.12"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {}
+}

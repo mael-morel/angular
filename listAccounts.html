@@ -1,14 +1,15 @@
 <h2>List of your accounts:</h2>
-
 <div>
     <ul>
         <li ng-repeat="account in listAccounts.accounts">
-            <a href="" ui-sref="accountDetail({accountNumber:account.number})">
-                number: {{account.number}}
-                owner: {{account.owner}}
+            <a href="" ui-sref="root.accountDetail({accountNumber:account.id})">
+                number: {{account.id}}
+                owner: {{account.owner.name}}
             </a>
         </li>
     </ul>
+
+    <h4>Nombre d'appels au service: {{listAccounts.serverCallCount}}</h4>
 
     <button ui-sref="root.createAccount">Créer un compte</button>
 </div>

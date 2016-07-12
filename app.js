@@ -29,20 +29,33 @@ firstApp.config(function ($stateProvider) {
     }
 );
 
-firstApp.controller('ListAccountsController' , function () {
+firstApp.controller('ListAccountsController', function (AccountService) {
 
     var vm = this;
-    vm.accounts = [
-        {'number' : 1234567891, 'owner': 'Didier Jeanchard'},
-        {'number' : 1098765432, 'owner': 'Didier Jeanchard'},
-        {'number' : 1112131415, 'owner': 'Mélanie Jeanchard'}
-    ];
+    vm.serverCallCount = AccountService.getServerCount();
+
+    AccountService.getAccountsByOwnerId(12).then(function (response) {
+        vm.accounts = response.data;
+    }, function (response, status) {
+        console.log(status);
+    });
 });
 
-firstApp.controller('AccountDetailController' , function ($stateParams){
+firstApp.controller('AccountDetailController', function ($stateParams, AccountService){
 
     var vm = this;
+    vm.serverCallCount = AccountService.getServerCount();
     vm.accountNumber = $stateParams.accountNumber;
+
+    function getAccountId () {
+        AccountService.getAccountById(vm.accountNumber).then(function (response) {
+            vm.account = response.data;
+        }, function (response, status) {
+            console.log(status);
+        });
+    }
+
+    getAccountId();
 });
 
 firstApp.controller('HeaderController' , function (){

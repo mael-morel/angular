@@ -29,20 +29,19 @@ firstApp.config(function ($stateProvider) {
     }
 );
 
-firstApp.controller('ListAccountsController' , function () {
+firstApp.controller('ListAccountsController', function () {
 
     var vm = this;
-    vm.accounts = [
-        {'number' : 1234567891, 'owner': 'Didier Jeanchard'},
-        {'number' : 1098765432, 'owner': 'Didier Jeanchard'},
-        {'number' : 1112131415, 'owner': 'Mélanie Jeanchard'}
-    ];
 });
 
-firstApp.controller('AccountDetailController' , function ($stateParams){
+firstApp.controller('AccountDetailController', function ($stateParams, AccountService){
 
     var vm = this;
+    vm.serverCallCount = AccountService.getServerCount();
     vm.accountNumber = $stateParams.accountNumber;
+
+
+    getAccountId();
 });
 
 firstApp.controller('HeaderController' , function (){
